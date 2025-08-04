@@ -29,9 +29,6 @@ main {
 
 footer {
     @apply px-40 py-5;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
 }
 
 h1 {

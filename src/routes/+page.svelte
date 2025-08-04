@@ -1,6 +1,7 @@
 <script>
-    import LightButton from "../components/LightButton.svelte";
-    import '../app.css';
+    import LightButton from "../components/LightButton.svelte"
+    import Floppy from "../components/Floppy.svelte"
+    import '../app.css'
 </script>
 
 <LightButton />
@@ -14,10 +15,20 @@
 
 <main>
     <h2>Games</h2>
+    <div class="py-10 grid gap-4 grid-cols-3">
+        <Floppy />
+        <Floppy />
+        <Floppy />
+        <Floppy />
+        <Floppy />
+        <Floppy />
+        <Floppy />
+    </div>
+    
 </main>
 
 <footer>
-    <p class="text-right text-gray-400">Made with ❤️ by d&b</p>
+    <p class="text-right text-gray-400">Made with ❤️</p>
 </footer>
 
 <style>
