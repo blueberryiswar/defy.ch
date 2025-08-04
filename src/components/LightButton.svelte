@@ -1,17 +1,18 @@
-<script> 
+<script>
     
-    let isDark = $state(true)
-    let theme = $derived(isDark ? 'dark' : 'light');
-	
-    function toggleTheme() {
-	    isDark = !isDark
+  let isDark = $state(true)
+  let theme = $derived(isDark ? 'dark' : 'light');
+
+  function toggleTheme() {
+      isDark = !isDark
 
       if(isDark) {
         document.documentElement.classList.add('dark')
       } else {
         document.documentElement.classList.remove('dark')
       }      
-    }
+  }
+
 </script>
 
 <button
