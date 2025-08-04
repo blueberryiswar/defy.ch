@@ -1,6 +1,6 @@
 <script>
     
-  let isDark = $state(true)
+  let isDark = $state(false)
   let theme = $derived(isDark ? 'dark' : 'light');
 
   function toggleTheme() {
@@ -17,9 +17,9 @@
 
 <button
   onclick={toggleTheme}
-  class="px-4 py-2 rounded bg-gray-400 dark:bg-blue text-black dark:text-white transition"
+  class="px-3 py-2 rounded bg-sky-500 dark:bg-sky-800 text-black dark:text-white transition"
 >
-  { theme === 'dark' ? '🌞 Light Mode' : '🌙 Dark Mode' }
+  { theme === 'dark' ? '🌞' : '🌙' }
 </button>
 
 <style>
