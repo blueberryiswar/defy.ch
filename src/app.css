@@ -16,5 +16,9 @@
 
 body {
   transition: background-color 0.2s, color 0.2s;
-  @apply bg-white dark:bg-black text-black dark:text-white text-center;
+  @apply bg-gray-200 dark:bg-gray-800 text-black dark:text-white text-center;
+}
+
+h1 {
+    @apply text-black dark:text-white text-8xl tracking-tighter text-balance;
 }
