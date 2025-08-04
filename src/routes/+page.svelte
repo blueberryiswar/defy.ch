@@ -5,5 +5,17 @@
 
 <LightButton />
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<header class="py-40 px-50">
+    <h1>Defy Channel</h1>
+
+    <p class="py-20">Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+
+</header>
+
+<main>
+    <h2>Games</h2>
+</main>
+
+<style>
+    
+</style>

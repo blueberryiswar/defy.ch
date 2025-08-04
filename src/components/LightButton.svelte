@@ -22,3 +22,12 @@
   { theme === 'dark' ? '🌞 Light Mode' : '🌙 Dark Mode' }
 </button>
 
+<style>
+  button {
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    z-index: 100;
+  }
+</style>
+
