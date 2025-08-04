@@ -8,13 +8,17 @@
 <header class="py-40 px-50">
     <h1>Defy Channel</h1>
 
-    <p class="py-20">Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+    <p class="py-20">Welcome to our little page.</p>
 
 </header>
 
 <main>
     <h2>Games</h2>
 </main>
+
+<footer>
+    <p class="text-right text-gray-400">Made with ❤️ by d&b</p>
+</footer>
 
 <style>
     

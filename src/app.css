@@ -27,6 +27,13 @@ main {
     @apply px-40 py-40;
 }
 
+footer {
+    @apply px-40 py-5;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
 h1 {
     @apply text-black dark:text-white text-8xl tracking-tighter text-balance;
 }
