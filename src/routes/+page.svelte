@@ -16,9 +16,9 @@
 <main>
     <h2>Games</h2>
     <div class="py-10 grid gap-4 grid-cols-3">
-        <Floppy />
-        <Floppy />
-        <Floppy />
+        <Floppy cart="bg-gray-300" floppy="bg-gray-900" darkFloppy="bg-black" cover="https://trashmob.ch/template/bernemup.png" />
+        <Floppy cover="https://trashmob.ch/template/lastGif.gif" />
+        <Floppy cart="bg-gray-300" floppy="bg-red-500" darkFloppy="bg-red-600"/>
         <Floppy />
         <Floppy />
         <Floppy />

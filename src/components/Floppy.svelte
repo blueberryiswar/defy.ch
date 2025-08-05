@@ -1,17 +1,23 @@
 <script>
-    let floppy = "bg-sky-500"
-    let darkFloppy = "bg-sky-600"
-    let cart = "bg-gray-600"
+    let { 
+        cover = "https://trashmob.ch/template/octout.png",
+        cart = "bg-gray-600",
+        floppy = "bg-sky-500",
+        darkFloppy = "bg-sky-600"
+     } = $props();
 </script>
 
-<div class="floppy aspect-90/94 w-80">
+<div class="floppy aspect-90/94 w-80 drop-shadow-xs">
     <div class="leftside">
         <div class="row-1 col-span-full {floppy} rounded-tl-lg"></div>
         <div class="row-2 col-1 {floppy}"></div>
+        <div class="row-2 col-2 inset-shadow-sm/30"></div>
         <div class="row-2 col-3 {floppy}"></div>
         <div class="row-3 col-span-full {floppy}"></div>
     </div>
-    <div class="etiquette inset-shadow-sm/25"></div>
+    <div class="etiquette inset-shadow-sm/25">
+        <img src={cover} alt="Game Cover Artwork">
+    </div>
     <div class="rightside">
         <div class="row-1 col-span-full {floppy} rounded-tr-lg"></div>
         <div class="row-2 col-1 {floppy}"></div>

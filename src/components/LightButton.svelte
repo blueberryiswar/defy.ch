@@ -1,6 +1,6 @@
 <script>
     
-  let isDark = $state(false)
+  let isDark = $state(true)
   let theme = $derived(isDark ? 'dark' : 'light');
 
   function toggleTheme() {
