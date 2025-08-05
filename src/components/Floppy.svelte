@@ -40,12 +40,13 @@
 
 		updateSprings(
 			{
-				x: adjust(percent.x, 0, 100, 37, 63),
-				y: adjust(percent.y, 0, 100, 33, 67)
-			},
-			{
 				x: round(-(center.x / 3.5)),
 				y: round(center.y / 2)
+			},
+			{
+				x: round(percent.x),
+				y: round(percent.y),
+				o: 1
 			}
 		);
 	};
@@ -63,7 +64,6 @@
 			springGlare.stiffness = snapStiff;
 			springGlare.damping = snapDamp;
 			springGlare.set({ x: 50, y: 50, o: 0 }, { soft: 1 });
-
 		}, delay);
 	};
 
@@ -76,6 +76,8 @@
 		springRotate.set(rotate);
 		springGlare.set(glare);
 	};
+
+    
 
 </script>
 
