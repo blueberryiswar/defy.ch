@@ -6,52 +6,6 @@
         darkFloppy = "bg-sky-600"
      } = $props();
 
-     
-    const disk = document.querySelector('.floppy');
-    let bounds = {x:0,y:0};
-
-    function rotateToMouse(e) {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    const leftX = mouseX - bounds.x;
-    const topY = mouseY - bounds.y;
-    const center = {
-        x: leftX - bounds.width / 2,
-        y: topY - bounds.height / 2
-    }
-    const distance = Math.sqrt(center.x**2 + center.y**2);
-    
-    disk.style.transform = `
-        scale3d(1.07, 1.07, 1.07)
-        rotate3d(
-        ${center.y / 100},
-        ${-center.x / 100},
-        0,
-        ${Math.log(distance)* 2}deg
-        )
-    `;
-    
-    disk.querySelector('.glow').style.backgroundImage = `
-        radial-gradient(
-        circle at
-        ${center.x * 2 + bounds.width/2}px
-        ${center.y * 2 + bounds.height/2}px,
-        #ffffff55,
-        #0000000f
-        )
-    `;
-    }
-
-    disk.addEventListener('mouseenter', () => {
-        bounds = disk.getBoundingClientRect();
-        document.addEventListener('mousemove', rotateToMouse);
-    });
-
-    disk.addEventListener('mouseleave', () => {
-    document.removeEventListener('mousemove', rotateToMouse);
-    disk.style.transform = '';
-    disk.style.background = '';
-    });
 </script>
 
 <div class="floppy aspect-90/94 w-80 drop-shadow-xs">
@@ -87,7 +41,6 @@
         <div class="row-span-full inset-shadow-sm/30 rounded-tr-lg col-5 {darkFloppy}"></div>
     </div>
     <div class="row-3 col-3 {floppy} rounded-br-lg"></div>
-    <div class="glow"></div>
 </div>
 
 
@@ -150,12 +103,5 @@
             "b b b";
     }
 
-    .floppy .glow {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
-    }
+    
 </style>
