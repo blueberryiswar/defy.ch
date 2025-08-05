@@ -3,11 +3,9 @@
 </script>
 
 <LightButton />
-<header class="py-20 px-50">
+<header class="">
 
         
-        <h1>Defy Channel</h1>
-
-        <p class="py-20">Welcome to our little page.</p>
+        <img class="w-full" src="/blueprint1.png">
 
 </header>
