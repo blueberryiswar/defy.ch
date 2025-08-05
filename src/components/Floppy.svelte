@@ -1,42 +1,42 @@
 <script>
-	import { Spring } from 'svelte/motion';
-	import { clamp, round, adjust } from '../helpers/Math.js';
+	import { Spring } from 'svelte/motion'
+	import { clamp, round, adjust } from '../helpers/Math.js'
 
 	let {
 		cover = 'https://trashmob.ch/template/octout.png',
 		cart = 'bg-gray-600',
 		floppy = 'bg-sky-500',
 		darkFloppy = 'bg-sky-600'
-	} = $props();
+	} = $props()
 
 	// Spring Setup derived from https://github.com/simeydotme/pokemon-cards-css
-	const springInteractSettings = { stiffness: 0.066, damping: 0.25 };
-	let springRotate = new Spring({ x: 0, y: 0 }, springInteractSettings);
-	let springGlare = new Spring({ x: 50, y: 50, o: 0 }, springInteractSettings);
-	let interacting = false;
+	const springInteractSettings = { stiffness: 0.066, damping: 0.25 }
+	let springRotate = new Spring({ x: 0, y: 0 }, springInteractSettings)
+	let springGlare = new Spring({ x: 50, y: 50, o: 0 }, springInteractSettings)
+	let interacting = false
 
 	const interact = (e) => {
-		interacting = true;
+		interacting = true
 
 		if (e.type === 'touchmove') {
-			e.clientX = e.touches[0].clientX;
-			e.clientY = e.touches[0].clientY;
+			e.clientX = e.touches[0].clientX
+			e.clientY = e.touches[0].clientY
 		}
 
-		const element = e.target.closest(".floppy");
-		const rect = element.getBoundingClientRect(); // get element's current size/position
+		const element = e.target.closest(".floppy")
+		const rect = element.getBoundingClientRect() // get element's current size/position
 		const absolute = {
 			x: e.clientX - rect.left, // get mouse position from left
 			y: e.clientY - rect.top // get mouse position from right
-		};
+		}
 		const percent = {
 			x: clamp(round((100 / rect.width) * absolute.x)),
 			y: clamp(round((100 / rect.height) * absolute.y))
-		};
+		}
 		const center = {
 			x: percent.x - 50,
 			y: percent.y - 50
-		};
+		}
 
 		updateSprings(
 			{
@@ -48,36 +48,34 @@
 				y: round(percent.y),
 				o: 1
 			}
-		);
-	};
+		)
+	}
 
 	const interactEnd = (e, delay = 500) => {
 		setTimeout(function () {
-			const snapStiff = 0.01;
-			const snapDamp = 0.06;
-			interacting = false;
+			const snapStiff = 0.01
+			const snapDamp = 0.06
+			interacting = false
 
-			springRotate.stiffness = snapStiff;
-			springRotate.damping = snapDamp;
-			springRotate.set({ x: 0, y: 0 }, { soft: 1 });
+			springRotate.stiffness = snapStiff
+			springRotate.damping = snapDamp
+			springRotate.set({ x: 0, y: 0 }, { soft: 1 })
 
-			springGlare.stiffness = snapStiff;
-			springGlare.damping = snapDamp;
-			springGlare.set({ x: 50, y: 50, o: 0 }, { soft: 1 });
-		}, delay);
-	};
+			springGlare.stiffness = snapStiff
+			springGlare.damping = snapDamp
+			springGlare.set({ x: 50, y: 50, o: 0 }, { soft: 1 })
+		}, delay)
+	}
 
 	const updateSprings = (rotate, glare) => {
-		springRotate.stiffness = springInteractSettings.stiffness;
-		springRotate.damping = springInteractSettings.damping;
-		springGlare.stiffness = springInteractSettings.stiffness;
-		springGlare.damping = springInteractSettings.damping;
+		springRotate.stiffness = springInteractSettings.stiffness
+		springRotate.damping = springInteractSettings.damping
+		springGlare.stiffness = springInteractSettings.stiffness
+		springGlare.damping = springInteractSettings.damping
 
-		springRotate.set(rotate);
-		springGlare.set(glare);
-	};
-
-    
+		springRotate.set(rotate)
+		springGlare.set(glare)
+	}
 
 </script>
 
@@ -141,7 +139,7 @@
 
 	div.cut {
 		/* to create / play around with polygon: https://developer.mozilla.org/en-US/docs/Web/CSS/basic-shape/polygon */
-		/*clip-path: polygon(0% 0%, 100% 100%, 100% 0%); 45 degree cut */
+		/* clip-path: polygon(0% 0%, 100% 100%, 100% 0%); 45 degree cut */
 		clip-path: polygon(0% 30%, 0% 0%, 100% 0%, 100% 100%, 70% 100%);
 	}
 

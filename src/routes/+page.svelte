@@ -1,37 +1,33 @@
 <script>
-    import LightButton from "../components/LightButton.svelte"
     import Floppy from "../components/Floppy.svelte"
+    import Header from "../components/Header.svelte"
+    import Footer from "../components/Footer.svelte"
     import '../app.css'
+    const floppies = [
+        {cart:"bg-gray-300", floppy:"bg-gray-900", darkFloppy:"bg-black", cover:"https://trashmob.ch/template/bernemup.png"},
+        {cover:"https://trashmob.ch/template/lastGif.gif"},
+        {cart:"bg-gray-300", floppy:"bg-red-500", darkFloppy:"bg-red-600", cover:"https://trashmob.ch/template/bernemup.png"},
+        {cover:"https://trashmob.ch/template/bernemup.png"},
+        {cart:"bg-gray-300", floppy:"bg-amber-500", darkFloppy:"bg-amber-600", cover:"https://cdn.mobygames.com/covers/6676712-the-legend-of-zelda-nes-front-cover.jpg"},
+        {floppy:"bg-yellow-500", darkFloppy:"bg-yellow-600", cover:"https://sm.ign.com/t/ign_nordic/cover/d/donkey-kon/donkey-kong_t3hw.1200.jpg"},
+        {floppy:"bg-purple-500", darkFloppy:"bg-purple-600", cover:"https://trashmob.ch/template/bernemup.png"},
+        ]
 </script>
 
-<div class="container w-360 mx-auto shadow-md relative bg-gray-200 dark:bg-gray-800 dark:shadow-cyan-500/50">
-    <LightButton />
-    <header class="py-20 px-50">
-        
-        <h1>Defy Channel</h1>
-
-        <p class="py-20">Welcome to our little page.</p>
-
-    </header>
+    
+    <Header />
 
     <main class="py-10">
         <h2>Games</h2>
-        <div class="py-10 grid gap-4 grid-cols-3">
-            <Floppy cart="bg-gray-300" floppy="bg-gray-900" darkFloppy="bg-black" cover="https://trashmob.ch/template/bernemup.png" />
-            <Floppy cover="https://trashmob.ch/template/lastGif.gif" />
-            <Floppy cart="bg-gray-300" floppy="bg-red-500" darkFloppy="bg-red-600"/>
-            <Floppy cover="https://cdn.mobygames.com/covers/6676712-the-legend-of-zelda-nes-front-cover.jpg"/>
-            <Floppy />
-            <Floppy />
-            <Floppy />
+        <div class="py-10 grid gap-5 grid-cols-3">
+            {#each floppies as floppy}
+            <Floppy {...floppy} />
+            {/each}
         </div>
         
     </main>
 
-    <footer>
-        <p class="text-right text-gray-400">Made with ❤️</p>
-    </footer>
-</div>
+    <Footer />
 
 <style>
     
