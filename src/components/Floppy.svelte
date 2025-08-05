@@ -1,5 +1,6 @@
 <script>
     let floppy = "bg-sky-500"
+    let darkFloppy = "bg-sky-600"
     let cart = "bg-gray-600"
 </script>
 
@@ -26,7 +27,7 @@
         <div class="row-2 col-3 {floppy}"></div>
         <div class="row-2 col-4 {cart}"></div>
         <div class="row-3 col-start-2 col-end-5 {cart}"></div>
-        <div class="row-span-full col-5 {floppy}"></div>
+        <div class="row-span-full col-5 {darkFloppy}"></div>
     </div>
     <div class="row-3 col-3 {floppy}"></div>
 </div>
@@ -52,7 +53,7 @@
 
     div.cart {
         display: grid;
-        grid-template-columns: 20% 10% 18% auto 18%; 
+        grid-template-columns: 15% 10% 18% auto 25%; 
         grid-template-rows: 8% auto 10%;
     }
 
