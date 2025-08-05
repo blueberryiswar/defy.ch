@@ -16,7 +16,7 @@
 
 body {
   transition: background-color 0.2s, color 0.2s;
-  @apply bg-gray-200 dark:bg-gray-800 text-black dark:text-white;
+  @apply bg-gray-300 dark:bg-gray-900 text-black dark:text-white;
 }
 
 header {
