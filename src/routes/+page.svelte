@@ -19,7 +19,7 @@
         <Floppy cart="bg-gray-300" floppy="bg-gray-900" darkFloppy="bg-black" cover="https://trashmob.ch/template/bernemup.png" />
         <Floppy cover="https://trashmob.ch/template/lastGif.gif" />
         <Floppy cart="bg-gray-300" floppy="bg-red-500" darkFloppy="bg-red-600"/>
-        <Floppy />
+        <Floppy cover="https://cdn.mobygames.com/covers/6676712-the-legend-of-zelda-nes-front-cover.jpg"/>
         <Floppy />
         <Floppy />
         <Floppy />

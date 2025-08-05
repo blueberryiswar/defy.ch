@@ -5,6 +5,53 @@
         floppy = "bg-sky-500",
         darkFloppy = "bg-sky-600"
      } = $props();
+
+     
+    const disk = document.querySelector('.floppy');
+    let bounds = {x:0,y:0};
+
+    function rotateToMouse(e) {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const leftX = mouseX - bounds.x;
+    const topY = mouseY - bounds.y;
+    const center = {
+        x: leftX - bounds.width / 2,
+        y: topY - bounds.height / 2
+    }
+    const distance = Math.sqrt(center.x**2 + center.y**2);
+    
+    disk.style.transform = `
+        scale3d(1.07, 1.07, 1.07)
+        rotate3d(
+        ${center.y / 100},
+        ${-center.x / 100},
+        0,
+        ${Math.log(distance)* 2}deg
+        )
+    `;
+    
+    disk.querySelector('.glow').style.backgroundImage = `
+        radial-gradient(
+        circle at
+        ${center.x * 2 + bounds.width/2}px
+        ${center.y * 2 + bounds.height/2}px,
+        #ffffff55,
+        #0000000f
+        )
+    `;
+    }
+
+    disk.addEventListener('mouseenter', () => {
+        bounds = disk.getBoundingClientRect();
+        document.addEventListener('mousemove', rotateToMouse);
+    });
+
+    disk.addEventListener('mouseleave', () => {
+    document.removeEventListener('mousemove', rotateToMouse);
+    disk.style.transform = '';
+    disk.style.background = '';
+    });
 </script>
 
 <div class="floppy aspect-90/94 w-80 drop-shadow-xs">
@@ -15,9 +62,9 @@
         <div class="row-2 col-3 {floppy}"></div>
         <div class="row-3 col-span-full {floppy}"></div>
     </div>
-    <div class="etiquette inset-shadow-sm/25">
-        <img src={cover} alt="Game Cover Artwork">
-    </div>
+    
+        <img class="etiquette inset-shadow-sm/25 object-cover" src={cover} alt="Game Cover Artwork">
+ 
     <div class="rightside">
         <div class="row-1 col-span-full {floppy} rounded-tr-lg"></div>
         <div class="row-2 col-1 {floppy}"></div>
@@ -40,6 +87,7 @@
         <div class="row-span-full inset-shadow-sm/30 rounded-tr-lg col-5 {darkFloppy}"></div>
     </div>
     <div class="row-3 col-3 {floppy} rounded-br-lg"></div>
+    <div class="glow"></div>
 </div>
 
 
@@ -49,7 +97,7 @@
     div.floppy {
         display: grid;
         grid-template-columns: 9% auto 9%;
-        grid-template-rows: auto 5% 33%;
+        grid-template-rows: 62% 5% 33%;
         grid-template-areas: 
             "l e r"
             "m m m"
@@ -59,6 +107,7 @@
     div.etiquette {
         grid-area: "e";
         background-color:white;
+        object-fit: cover;
     }
 
     div.cut {
@@ -99,5 +148,14 @@
             "t t t"
             "l . r"
             "b b b";
+    }
+
+    .floppy .glow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
     }
 </style>
