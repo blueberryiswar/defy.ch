@@ -4,13 +4,11 @@
     let { altText = "Image preview", imageName = "image" } = $props();
 	
     const onFileSelected =(e)=>{
-        console.log("Upload go");
         let upload = e.target.files[0];
         let reader = new FileReader();
         reader.readAsDataURL(upload);
         reader.onload = e => {
             if(e.target && e.target.result) preview = e.target.result
-            console.log("Upload end");
         };
     }
 </script>

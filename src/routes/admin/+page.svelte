@@ -24,4 +24,5 @@
 
 <NewEntry />
 
+
 <Footer />
