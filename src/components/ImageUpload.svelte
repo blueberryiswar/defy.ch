@@ -13,25 +13,30 @@
     }
 </script>
 
-<div> 
+<div class="wrap"> 
     {#if preview}
         <img class="preview" src="{preview}" alt="{altText}" />
         {:else}
-        <button class="px-3 py-2 rounded bg-sky-500 dark:bg-sky-800 text-black dark:text-white transition" 
+        <div role="button" class="fakebutton px-3 py-2 rounded bg-sky-500 dark:bg-sky-800 text-black dark:text-white transition" 
             onclick={()=>{fileinput.click();}}
-        >Choose Image</button>
+        >Choose Image</div>
     {/if}
     <input name={imageName} style="display:none" type="file" accept=".jpg, .jpeg, .gif, .png" onchange={(e)=>onFileSelected(e)} bind:this={fileinput} >
+    <!-- <input name={imageName + '_base'} type="hidden" value={preview} > -->
 </div>
 
 <style>
-	div{
+	div.wrap {
 	    display:flex;
         width: 100%;
         height: 100%;
 		align-items:center;
 		justify-content:center;
 		flex-flow:column;
+    }
+
+    div.fakebutton {
+        cursor: pointer;
     }
  
 	.preview{

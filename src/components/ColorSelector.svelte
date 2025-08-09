@@ -1,21 +1,19 @@
 <script>
-    let selectedColor = $state("")
     const colors = ["gray", "amber", "emerald", "cyan", "indigo", "purple", "rose"]
+    let selected = $state(colors[0])
+
+    
     let {label = "Color", field="color", modifier="500"} = $props()
 
-    function assignThis(e) {
-        console.log("Color: ", e.target.dataset.color)
-        selectedColor = e.target.dataset.color;
-    }
 </script>
 
 <div>
     <label for={field}>{label}</label>
-    <input name={field} type="hidden" value={selectedColor}>
+    <input name={field} type="hidden" value={selected}>
 </div>
 <div class="flex items-center gap-1">
     {#each colors as color}
-        <button class="bg-{color}-{modifier} w-1/8 h-6" data-color="bg-{color}-{modifier}" aria-label={color} onclick="{(e) => assignThis(e)}" ></button>
+        <div class="{selected === color ? 'active' : ''} color-select bg-{color}-{modifier} w-1/8 h-6" data-color="{color}" data-modifier={modifier} role="button" aria-label={color} onclick="{() => selected = color}" ></div>
     {/each}
 </div>
 
@@ -26,3 +24,14 @@
     <div class="bg-purple-600"></div>
     <div class="bg-rose-600"></div>
 </div>
+
+<style>
+
+    .color-select {
+        cursor: pointer;
+    }
+    .active {
+        border: 2px white solid;
+        
+    }
+</style>
