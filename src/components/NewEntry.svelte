@@ -18,7 +18,7 @@
             <ImageUpload altText="Cover Image Preview" imageName="cover" />
             <ImageUpload altText="Cover Image Preview" imageName="clip" />
             <ColorSelector label="Disk color" field="diskColor" modifier="600" />
-
+            
         </div>
     </form>
     
